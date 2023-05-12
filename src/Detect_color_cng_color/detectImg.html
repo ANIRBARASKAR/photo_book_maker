@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>DetectColor 
+    
+        <canvas id='c' height={400} width={400} style="border:2px solid red"></canvas>
+        <img id='my-img' src="https://images.unsplash.com/photo-1511268011861-691ed210aae8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NjB8fHJlZHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" alt="" />
+        <!-- {/* <img id='imgID' src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANcAAAB5CAMAAACdtUQZAAAAA1BMVEX/AAAZ4gk3AAAAMElEQVR4nO3BMQEAAADCoPVPbQlPoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB4GmYYAAGiFkejAAAAAElFTkSuQmCC" alt="" /> */} -->
+        </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/4.0.0-beta.12/fabric.min.js"></script>
+
+    <script>
+        const test = () => {
+            var canvas = new fabric.Canvas('c');
+      fabric.Image.fromURL('https://images.unsplash.com/photo-1511268011861-691ed210aae8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NjB8fHJlZHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60', function(img) {
+        canvas.add(img);
+        var imageData = canvas.contextContainer.getImageData(0, 0, img.width, img.height);
+        var pixels = imageData.data;
+        var colorMap = {};
+        for (var i = 0, n = pixels.length; i < n; i += 4) {
+          var r = pixels[i];
+          var g = pixels[i + 1];
+          var b = pixels[i + 2];
+          var a = pixels[i + 3];
+          var key = r + ',' + g + ',' + b;
+          if (!colorMap[key]) {
+            colorMap[key] = 1;
+          } else {
+            colorMap[key]++;
+          }
+        }
+        console.log(colorMap);
+      });
+        }
+        test()
+    </script>
+
+</body>
+</html>

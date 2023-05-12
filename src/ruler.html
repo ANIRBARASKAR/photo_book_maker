@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #canvas_div {
+float: left;
+position: relative;
+}
+#designCanvas {
+position: absolute;
+top: 20px;
+left: 20px;
+}
+    </style>
+</head>
+<body>
+    <div id="canvas_div" style="z-index:15; line-height: 1">
+        <img src="https://images.unsplash.com/photo-1621792247511-7d86349379e7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MTZ8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=100&q=60" id="uploaded_image" style="display:none;">
+        <canvas id="canvasBottom" width="630" height="425"></canvas>
+        <canvas id="designCanvas" width="470" height="405"></canvas>
+    </div>
+      
+
+    <!-- <script>
+        var canvas = document.getElementById('designCanvas');
+// var ctx = canvas.getContext('2d');
+// var img = document.createElement('img');
+// img.setAttribute('crossOrigin', 'anonymous');
+// img.src = 'https://images.unsplash.com/photo-1515893714471-66e7ab2b1b58?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MjF8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60';
+// var imgwidth = 0;
+// var imgheight = 0;
+// img.onload = function() { 
+//   imgwidth = img.width / 6.5;
+//   imgheight = img.height / 6.5;
+//   fillPattern(this, imgwidth, imgheight)
+// };
+
+var canvas2 = document.getElementById("canvasBottom");
+var ctx2 = canvas2.getContext("2d");
+
+drawRulers(ctx2, 20, 25, 25);
+
+function drawRulers(t, e, n, s) {
+  i = 20;
+  var o = document.getElementById("designCanvas"),
+      r = displayWidth(o, i),
+      a = displayHeight(o, i);
+  t.fillStyle = "#efefef", t.fillRect(i, 0, r, i), t.fillRect(0, i, i, a), t.fillStyle = "#333333", t.fillRect(0, 0, i, i), t.beginPath(), t.font = "12px Lato", t.fillStyle = "#ffffff", t.textAlign = "center", t.fillText("in.", i / 2, i - 5);
+  var l = !0,
+      c = !0;
+  t.fillStyle = "#333333";
+  for (var d = 1; n >= d; d += 1) {
+    var h = d * e,
+        u = d + "";
+    12 > n && !l || 32 > n && !l && c || n >= 32 && d % 12 == 0 ? t.fillText(u, h + i, i - 3) : t.fillText(l ? "\u0131" : "|", h + i, i - 2), l = !l, l || (c = !c)
+  }
+  l = !0, c = !0, t.textAlign = "right";
+  for (var p = 1; s >= p; p += 1) {
+    var f = p * e;
+    u = p + "", 12 > s && !l || 32 > s && !l && c || s >= 32 && p % 12 == 0 ? t.fillText(u, i - 1, f + i + 2, 18) : t.fillText(l ? "-" : "\u2014", i, f + i + 1, 18), l = !l, l || (c = !c)
+  }
+}
+
+function displayWidth(t, e) {
+  return t.width - e
+}
+
+function displayHeight(t, e) {
+  return t.height - e
+}
+
+function fillPattern(img, w, h) {
+  origW = w;
+  origH = h;
+
+	i = 0
+  w = 0;
+  h = 0;
+  
+  while (h < canvas.height + origH) {
+  	while (w < canvas.width) {
+      ctx.drawImage(img, w, i % 2 == 0 ? h : (h + origH / 2 * -1), origW, origH);
+      	w += origW;
+      	i++;
+  	}
+    h += origH;
+    i = 0;
+    w = 0;
+  }
+}
+    </script> -->
+
+    <script>
+         var canvas = document.getElementById('designCanvas');
+ var ctx = canvas.getContext('2d');
+ var img = document.createElement('img');
+ img.setAttribute('crossOrigin', 'anonymous');
+ img.src = 'https://images.unsplash.com/photo-1515893714471-66e7ab2b1b58?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MjF8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60';
+ var imgwidth = 0;
+ var imgheight = 0;
+ img.onload = function() {
+   imgwidth = img.width / 6.5;
+   imgheight = img.height / 6.5;
+   fillPattern(this, imgwidth, imgheight)
+ };
+
+ var canvas2 = document.getElementById("canvasBottom");
+ var ctx2 = canvas2.getContext("2d");
+
+ console.log("ctx2",ctx2);
+
+ drawRulers(ctx2, 20, 25, 25);
+
+ function drawRulers(t, e, n, s) {
+   var i = 20;
+   var o = document.getElementById("designCanvas"),
+     r = displayWidth(o, i),
+     a = displayHeight(o, i);
+   t.fillStyle = "#efefef", t.fillRect(i, 0, r, i), t.fillRect(0, i, i, a), t.fillStyle = "#333333", t.fillRect(0, 0, i, i), t.beginPath(), t.font = "12px Lato", t.fillStyle = "#ffffff", t.textAlign = "center", t.fillText("in.", i / 2, i - 5);
+   var l = !0,
+     c = !0;
+   t.fillStyle = "#333333";
+   for (var d = 1; n >= d; d += 1) {
+     var h = d * e,
+       u = d + "";
+     12 > n && !l || 32 > n && !l && c || n >= 32 && d % 12 == 0 ? t.fillText(u, h + i, i - 3) : t.fillText(l ? "\u0131" : "|", h + i, i - 2), l = !l, l || (c = !c)
+   }
+   l = !0, c = !0, t.textAlign = "right";
+   for (var p = 1; s >= p; p += 1) {
+     var f = p * e;
+     u = p + "", 12 > s && !l || 32 > s && !l && c || s >= 32 && p % 12 == 0 ? t.fillText(u, i - 1, f + i + 2, 18) : t.fillText(l ? "-" : "\u2014", i, f + i + 1, 18), l = !l, l || (c = !c)
+   }
+ }
+
+ function displayWidth(t, e) {
+   return t.width - e
+ }
+
+ function displayHeight(t, e) {
+   return t.height - e
+ }
+
+ function fillPattern(img, w, h) {
+   var origW = w;
+   var origH = h;
+
+   let i = 0
+   w = 0;
+   h = 0;
+
+   while (h < canvas.height + origH) {
+     while (w < canvas.width) {
+       ctx.drawImage(img, w, i % 2 == 0 ? h : (h + origH / 2 * -1), origW, origH);
+       w += origW;
+       i++;
+     }
+     h += origH;
+     i = 0;
+     w = 0;
+   }
+ }
+
+    </script>
+</body>
+</html>

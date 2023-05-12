@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <canvas id="myCanvas" height="500" width="500" ></canvas>  
+</body>
+
+<script>
+    var canvas = document.getElementById('myCanvas');
+var ctx = canvas.getContext('2d');
+
+// Set the canvas size to the desired ruler size (in centimeters)
+canvas.width = 50; // 20 cm
+canvas.height = 50; // 10 cm
+
+// Set the scale factor (pixels per centimeter)
+var scale =37.7952755906; // 50 pixels per centimeter
+
+// Set the line width and color
+ctx.lineWidth = 1;
+ctx.strokeStyle = 'black';
+
+// Draw the horizontal lines
+for (var y = 0; y <= canvas.height; y += 1) {
+  ctx.beginPath();
+  ctx.moveTo(0, y * scale);
+  ctx.lineTo(canvas.width * scale, y * scale);
+  ctx.stroke();
+}
+
+// Draw the vertical lines
+for (var x = 0; x <= canvas.width; x += 1) {
+  ctx.beginPath();
+  ctx.moveTo(x * scale, 0);
+  ctx.lineTo(x * scale, canvas.height * scale);
+  ctx.stroke();
+}
+
+// Draw the tick marks
+for (var y = 0; y <= canvas.height; y += 1) {
+  for (var x = 0; x <= canvas.width; x += 1) {
+    if (y % 10 === 0) {
+      ctx.moveTo(x * scale - 5, y * scale);
+      ctx.lineTo(x * scale + 5, y * scale);
+    } else if (y % 5 === 0) {
+      ctx.moveTo(x * scale - 3, y * scale);
+      ctx.lineTo(x * scale + 3, y * scale);
+    }
+    ctx.stroke();
+  }
+}
+
+</script>
+</html>

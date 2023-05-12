@@ -1,8 +1,10 @@
-import React,{useEffect} from 'react'
+import React,{useEffect,useState} from 'react'
 import { fabric } from 'fabric';
 export default function PhotoBook() {
 
-    const canvas = new fabric.Canvas("canvas", {
+  const [inputValue,setinputValue] = useState()
+
+  const canvas = new fabric.Canvas("canvas", {
         width: 500,
         height: 500 });
 
@@ -28,16 +30,46 @@ export default function PhotoBook() {
         canvas.clear();
         canvas.backgroundColor = "pink";
         let clipPathTopRight = new fabric.Rect({
-          width: 240,
-          height: 240,
-          left: 255,
-          top: 5,
-          stroke: "green",
-          strokeWidth: 3,
-          strokeDashArray: [5, 5],
-          fill: "rgba(255,255,255,0.2)",
-          selectable: false,
-          isClipFrame: true });
+    //       radius: 100,
+    //       left: 275,
+    // top: 30,
+    //       stroke: "green",
+    //       strokeWidth: 3,
+    //       // strokeDashArray: [5, 5],
+    //       fill: "transparent",
+    //       selectable: false,
+    //       isClipFrame: true  });
+
+          // anir
+
+      //     canvas.clear();
+      //   let clipPathButton = new fabric.Circle({
+      //     radius: 100,
+      //     left: 50,
+      //     top: 50,
+      //     stroke: "red",
+      //     strokeWidth: 1,
+      //     strokeDashArray: [5, 5],
+      //     fill: "transparent",
+      //     selectable: false,
+      //     isClipFrame: true });
+      
+      //   canvas.add(clipPathButton);
+      // }
+
+      // 
+
+      width: 240,
+      height: 240,
+      left: 255,
+      top: 5,
+      stroke: "green",
+      strokeWidth: 3,
+      strokeDashArray: [5, 5],
+      fill: "rgba(255,255,255,0.2)",
+      selectable: false,
+      isClipFrame: true});
+          // anir
       
       
         let clipPathTopLeft = new fabric.Rect({
@@ -56,7 +88,7 @@ export default function PhotoBook() {
         let clipPathBotton = new fabric.Rect({
           width: 490,
           height: 240,
-          left: 5,
+          left: 5, 
           top: 255,
           stroke: "red",
           strokeWidth: 1,
@@ -154,29 +186,19 @@ export default function PhotoBook() {
         // var path = new fabric.Path('M276.5 444.707l-170.752 80.812 24.093-187.367L.218 200.731l185.642-34.987L276.5 0l90.64 165.744 185.642 34.987-129.623 137.421 24.093 187.367z')
   
         
-            // Extra star
-        // var path = new fabric.Path('M381.5 585.822L279.396 762.558l-.057-204.11-176.793 102.006L204.552 483.66l-204.11-.057L177.178 381.5.442 279.396l204.11-.057-102.006-176.793L279.34 204.552l.057-204.11L381.5 177.178 483.604.442l.057 204.11 176.793-102.006L558.448 279.34l204.11.057L585.822 381.5l176.736 102.104-204.11.057 102.006 176.793L483.66 558.448l-.057 204.11z')
+         
   
-            // leaf 
-        //var path = new fabric.Path('M31.604 4.203c-3.461-2.623-8.787-4.189-14.247-4.189-6.754 0-12.257 2.358-15.099 6.469-1.335 1.931-2.073 4.217-2.194 6.796-0.108 2.296 0.278 4.835 1.146 7.567 2.965-8.887 11.244-15.847 20.79-15.847 0 0-8.932 2.351-14.548 9.631-0.003 0.004-0.078 0.097-0.207 0.272-1.128 1.509-2.111 3.224-2.846 5.166-1.246 2.963-2.4 7.030-2.4 11.931h4c0 0-0.607-3.819 0.449-8.212 1.747 0.236 3.308 0.353 4.714 0.353 3.677 0 6.293-0.796 8.231-2.504 1.736-1.531 2.694-3.587 3.707-5.764 1.548-3.325 3.302-7.094 8.395-10.005 0.292-0.167 0.48-0.468 0.502-0.804s-0.126-0.659-0.394-0.862z')
-        //     // chat-message 
-        // var path = new fabric.Path('M15 0v0c8.284 0 15 5.435 15 12.139s-6.716 12.139-15 12.139c-0.796 0-1.576-0.051-2.339-0.147-3.222 3.209-6.943 3.785-10.661 3.869v-0.785c2.008-0.98 3.625-2.765 3.625-4.804 0-0.285-0.022-0.564-0.063-0.837-3.392-2.225-5.562-5.625-5.562-9.434 0-6.704 6.716-12.139 15-12.139zM31.125 27.209c0 1.748 1.135 3.278 2.875 4.118v0.673c-3.223-0.072-6.181-0.566-8.973-3.316-0.661 0.083-1.337 0.126-2.027 0.126-2.983 0-5.732-0.805-7.925-2.157 4.521-0.016 8.789-1.464 12.026-4.084 1.631-1.32 2.919-2.87 3.825-4.605 0.961-1.84 1.449-3.799 1.449-5.825 0-0.326-0.014-0.651-0.039-0.974 2.268 1.873 3.664 4.426 3.664 7.24 0 3.265-1.88 6.179-4.82 8.086-0.036 0.234-0.055 0.474-0.055 0.718z')
-  
-        //     // home 
-        // var path = new fabric.Path('M32 18.451l-16-12.42-16 12.42v-5.064l16-12.42 16 12.42zM28 18v12h-8v-8h-8v8h-8v-12l12-9z')
+       
   
   
   
-      // rose img path
-      //   var path = new fabric.Path('M 50,50 m -40,0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0 m -30,-30 q 20,-20 40,0 q 20,20 0,40 q -20,20 -40,0 q -20,-20 0,-40 z')
-      //   var path = new fabric.Path('M 10 3 L 110 215 A 30 50 0 0 1 162.55 162.45 L 172.55 152.45 A 30 50 -45 0 1 215.1 109.9 L 315 10')
   
           path.set({  
             // fill: 'yellow',
         //   stroke: 'green',  
           top: 0,
             left: 0,
-            // fixed: true,
+            fixed: true,
             // fill: 'blue',
             // stroke: '',
             scaleX: 0.2,
@@ -197,12 +219,10 @@ export default function PhotoBook() {
           
   
           // create a mask image
-          fabric.Image.fromURL(movingImage, function(img) {
-          //    img.clipPath = path2;
-          // fabric.Image.fromURL('https://images.unsplash.com/photo-1675025893356-5853331b0759?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyNTB8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60', function(img) {
-          // //    img.clipPath = path2;
+          // fabric.Image.fromURL(movingImage, function(img) {
+          fabric.Image.fromURL('https://images.unsplash.com/photo-1675025893356-5853331b0759?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyNTB8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60', function(img) {
           img.clipPath = path;
-            canvas.add(img);
+            canvas.add(path);
           });
       
       }
@@ -229,6 +249,7 @@ export default function PhotoBook() {
       //   };
       // }
       let clipPath; 
+
       function dropImg(e) {
         let target = e.target;
         console.log(target,"from DROPimg");
@@ -280,8 +301,17 @@ export default function PhotoBook() {
         set_layout4()
       }
       
-    
-      
+   const handleInput = (e) => {
+          alert("handleInput called") 
+          setinputValue(URL.createObjectURL(e.target.files[0]));
+
+          console.log(inputValue,"inputValue")
+          
+        }
+
+        useEffect(() => {
+          
+        },[inputValue])
 
   return (
     <>
@@ -294,13 +324,15 @@ export default function PhotoBook() {
 
     <div className="options">
 
-      <button className="btn btn-dark ms-0"    >upload</button>
+      {/* <but className="btn btn-dark ms-0"   onClick={handleInput} > */}
+        <input type="file" id="file"  onChange={  handleInput}/>
+      
+      
       <button className="btn btn-dark ms-5"   onClick={layout01Btn} >layout 01</button>
       <button className="btn btn-dark ms-5"   onClick={layout02Btn} >lauyout 02</button>
       <button className="btn btn-dark ms-5"   onClick={layout03Btn} >loadSVGFromURL</button>
       <button className="btn btn-dark ms-5"   onClick={layout04Btn} >svgPathImg</button>
       
-        {/* <input type="file" id="file" onchange={handleFile}/> */}
       </div>  
       drag & drop it!
       <div id="imgset" onMouseDown={saveImg}>
